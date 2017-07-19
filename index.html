@@ -7,6 +7,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.0/croppie.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.1/min/dropzone.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.1.1/exif.min.js"></script>
         <style>
           body {
             display: flex;
@@ -66,16 +67,19 @@
             <div id="file" class="fileupload">
                 圖片上傳...
             </div>
+            <div style="margin-bottom: 1rem">
+                縮放：手機雙指、桌機滑鼠滾輪
+            </div>
           <div class="parent">
             <div id="root"></div>
           </div>
         </div>
         <button id="download" class="button">下載</button>
-        <img id="result" src="" style="display: none" />
-        <canvas id="canvas" style="display: none"></canvas>
         <a href="https://github.com/tpai/emerald-generator" target="_blank" style="margin: 1rem">
             <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/mark-github.svg" />
         </a>
-        <script src="https://s3-ap-southeast-1.amazonaws.com/my-fucking-bucket/bundle.js"></script>
+        <img id="result" src="" style="display: none" />
+        <canvas id="canvas" style="display: none"></canvas>
+        <script src="./bundle.js?ts=201707191410"></script>
     </body>
 </html>
