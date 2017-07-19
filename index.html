@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>翡翠週刊產生器</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.0/croppie.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.5.0/croppie.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+        <style>
+          body {
+            margin: 0;
+          }
+          .container {
+            position: relative;
+          }
+          .cover {
+            z-index: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+          }
+          .cr-boundary {
+            margin: 0 !important;
+          }
+          .cr-slider-wrap {
+            width: auto !important;
+            text-align: left !important;
+          }
+          #download {
+            font-size: 1.5rem;
+            border: 1px solid #000;
+            background: #fff;
+            margin: .5rem;
+          }
+        </style>
+    </head>
+    <body>
+        <div>
+          <input type="file" id="file" />
+          <hr />
+          <input id="download" type="button" value="下載" />
+          <div class="container">
+            <div id="root"></div>
+          </div>
+        </div>
+        <img id="result" src="" style="display: none" />
+        <canvas id="canvas" style="display: none"></canvas>
+        <script src="./bundle.js"></script>
+    </body>
+</html>
