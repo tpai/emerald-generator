@@ -1,8 +1,12 @@
 /* global __dirname */
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './index',
+    entry: {
+        app: './index',
+        vendor: ['jquery', 'croppie']
+    },
     resolve: {
         modules: [ path.resolve('./src'), 'node_modules' ],
         extensions: ['.js', '.jsx', '.css', '.scss']
@@ -21,5 +25,8 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' })
+    ]
 }
