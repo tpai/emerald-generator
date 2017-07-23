@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack",
-    "build": "webpack -p",
-    "server": "serve ."
+    "start": "webpack && mustache resources-dev.json index.mustache > public/index.html",
+    "build": "webpack -p && mustache resources.json index.mustache > public/index.html",
+    "server": "serve ./public",
+    "preinstall": "[ -f resources-dev.json ] || cp resources.json.example resources-dev.json",
+    "postinstall": "[ -f resources.json ] || cp resources.json.example resources.json"
   },
   "dependencies": {
     "babel-core": "^6.25.0",
@@ -15,6 +17,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "croppie": "^2.5.0",
     "jquery": "^3.2.1",
+    "mustache": "^2.3.0",
     "webpack": "^3.3.0"
   }
 }

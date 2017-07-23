@@ -28,18 +28,20 @@
             flex-direction: column;
             align-items: center;
           }
-          .cover {
+          .mask {
             z-index: 1;
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+            width: 400px;
+            height: 554px;
           }
           .fileupload {
             width: 95%;
             max-width: 433px;
-            margin: 1rem;
+            margin: 1rem 0 1rem 0;
             padding: 1rem 0 1rem 0;
             border: 1px dashed darkgrey;
             color: darkgrey;
@@ -89,8 +91,19 @@
             <img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/mark-github.svg" />
         </a>
         <img id="result" src="" style="display: none" />
+        <img id="cover" src="./cover.png" style="display: none" />
         <canvas id="canvas" style="display: none"></canvas>
-        <script src="https://my-fucking-bucket.s3-ap-southeast-1.amazonaws.com/vendor.js?ts=201707210008"></script>
-        <script src="https://my-fucking-bucket.s3-ap-southeast-1.amazonaws.com/bundle.js?ts=201707210008"></script>
+        <script src="./vendor.js"></script>
+        <script src="./bundle.js"></script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', '', 'auto');
+          ga('send', 'pageview');
+
+        </script>
     </body>
 </html>

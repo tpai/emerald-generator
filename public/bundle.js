@@ -1,12 +1,17 @@
-const $ = require('jquery');
-const Croppie = require('croppie');
+webpackJsonp([0],{
 
-const root = document.getElementById('root');
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
 
-let crop;
+var $ = __webpack_require__(0);
+var Croppie = __webpack_require__(1);
+
+var root = document.getElementById('root');
+
+var crop = void 0;
 reInitInstance();
 
-root.addEventListener('update', evt => {
+root.addEventListener('update', function (evt) {
     crop.result({
         type: 'rawcanvas',
         size: {
@@ -14,45 +19,47 @@ root.addEventListener('update', evt => {
             height: 1108
         },
         format: 'png'
-    }).then(canvas => {
+    }).then(function (canvas) {
         $('#result').prop('src', canvas.toDataURL());
     });
 });
 
-const files = new Dropzone('#file', {
+var files = new Dropzone('#file', {
     url: '/#',
     createImageThumbnails: false,
     previewTemplate: '<div />'
 });
 
-files.on('addedfile', file => {
+files.on('addedfile', function (file) {
     reInitInstance();
-    let fr = new FileReader();
-    fr.onload = function() {
+    var fr = new FileReader();
+    fr.onload = function () {
         crop.bind({ url: fr.result });
     };
     fr.readAsDataURL(file);
 });
 
-$('#download').click(() => {
-    setTimeout(() => {
-        const result = scaleIt(document.getElementById('result'), 1 / 2);
-        const cover = scaleIt(document.getElementById('cover'), 1 / 2);
-        let canvas = document.getElementById('canvas');
-        let context = canvas.getContext('2d');
+$('#download').click(function () {
+    setTimeout(function () {
+        var result = scaleIt(document.getElementById('result'), 1 / 2);
+        var cover = scaleIt(document.getElementById('cover'), 1 / 2);
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
         canvas.width = 400;
         canvas.height = 554;
         context.drawImage(result, 0, 0);
         context.drawImage(cover, 0, 0);
-        canvas.toBlob(blob => saveAs(blob));
+        canvas.toBlob(function (blob) {
+            return saveAs(blob);
+        });
     }, 500);
 });
 
 function scaleIt(source, scaleFactor) {
-    let c = document.createElement('canvas');
-    let ctx = c.getContext('2d');
-    const w = source.width * scaleFactor;
-    const h = source.height * scaleFactor;
+    var c = document.createElement('canvas');
+    var ctx = c.getContext('2d');
+    var w = source.width * scaleFactor;
+    var h = source.height * scaleFactor;
     c.width = w;
     c.height = h;
     ctx.drawImage(source, 0, 0, w, h);
@@ -60,7 +67,7 @@ function scaleIt(source, scaleFactor) {
 }
 
 function reInitInstance() {
-    const cover = '<img src="./cover.png" class="mask" />';
+    var cover = '<img src="./cover.png" class="mask" />';
     if (typeof crop !== 'undefined') {
         crop.destroy();
         crop = undefined;
@@ -79,3 +86,7 @@ function reInitInstance() {
     });
     $('.cr-viewport').append(cover);
 }
+
+/***/ })
+
+},[2]);
