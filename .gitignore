@@ -56,5 +56,10 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Custom settings
 resources-dev.json
 resources.json
+public/*.js
+public/*.css
+public/index.html
