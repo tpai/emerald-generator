@@ -1,10 +1,11 @@
 /* global __dirname */
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        app: './index',
+        app: path.resolve('./src') + '/index',
         vendor: ['jquery', 'croppie']
     },
     resolve: {
@@ -23,10 +24,18 @@ module.exports = {
                    { loader: 'babel-loader' }
                 ],
                 exclude: /node_modules/
-            }
+            },
+           {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: { loader: 'css-loader', options: { minimize: true } }
+                })
+           }
         ]
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' })
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),
+        new ExtractTextPlugin('styles.css'),
     ]
 }
