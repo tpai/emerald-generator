@@ -1,4 +1,4 @@
-const $ = require('jquery');
+const $ = require('cash-dom');
 const Croppie = require('croppie');
 require('./styles');
 
@@ -77,7 +77,7 @@ class Generator {
             });
         });
 
-        $('#download').click(() => {
+        document.getElementById('download').addEventListener('click', () => {
             setTimeout(() => {
                 const result = this.scaleIt(document.getElementById('result'), 1 / 2);
                 const cover = this.scaleIt(document.getElementById('cover'), 1 / 2);

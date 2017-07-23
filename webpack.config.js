@@ -6,7 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     entry: {
         app: path.resolve('./src') + '/index',
-        vendor: ['jquery', 'croppie']
+        vendor: ['cash-dom', 'croppie']
     },
     resolve: {
         modules: [ path.resolve('./src'), 'node_modules' ],
