@@ -4,7 +4,7 @@ require('./styles');
 
 class Generator {
     constructor(target) {
-        $(target).prop('class', 'gr-container');
+        $(target).attr('class', 'gr-container');
         $(target).append(`
 <div class="gr-container">
     <div id="file" class="gr-fileupload">
