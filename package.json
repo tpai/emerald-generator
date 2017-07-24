@@ -4,10 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack && mustache resources-dev.json src/index.mustache > public/index.html",
+    "start": "webpack && mustache resources.json src/index.mustache > public/index.html",
     "build": "webpack -p && mustache resources.json src/index.mustache > public/index.html",
     "server": "serve ./public",
-    "preinstall": "[ -f resources-dev.json ] || cp resources.json.example resources-dev.json",
     "postinstall": "[ -f resources.json ] || cp resources.json.example resources.json"
   },
   "dependencies": {
