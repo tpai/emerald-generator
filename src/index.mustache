@@ -29,6 +29,17 @@
         <div id="generator"></div>
         <script src="./vendor.js"></script>
         <script src="./bundle.js"></script>
+        <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log('##Service Worker##  Service Worker registration successful with scope: ', registration.scope);
+                })
+                .catch(function(err) {
+                    console.log('##Service Worker##  Service Worker registration failed: ', err);
+                });
+        }
+        </script>
         <script>new Generator('#generator');</script>
         <div style="margin: 1rem">
             圖源及出處：<a href="https://www.facebook.com/kyanos.sky/posts/10155549152803839" target="_blank">FB 貼文</a>

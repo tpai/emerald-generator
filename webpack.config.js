@@ -2,6 +2,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -37,5 +38,11 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js' }),
         new ExtractTextPlugin('styles.css'),
+        new SWPrecacheWebpackPlugin({
+            filename: 'service-worker.js',
+            minify: true,
+            stripPrefix: 'public/',
+            staticFileGlobs: ['public/**.*']
+        })
     ]
 }
