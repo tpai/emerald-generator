@@ -62,3 +62,6 @@ resources.json
 public/*.js
 public/*.css
 public/index.html
+
+# Mac hidden file
+.DS_Store
